@@ -151,10 +151,32 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     items: {
-      type: String,
+      type: Array,
       "default": function _default() {
         return [];
       }
@@ -162,7 +184,7 @@ __webpack_require__.r(__webpack_exports__);
     css: {
       type: String,
       "default": function _default() {
-        return 'h-250 h-md-400 h-lg-600';
+        return "h-250 h-md-400 h-lg-600";
       }
     },
     cells: {
@@ -174,7 +196,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      src: '',
+      src: "",
       index: -1,
       loading: false,
       events: []
@@ -185,7 +207,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       if (this.events.length > 0) return;
-      this.events.push(['keydown', function (e) {
+      this.events.push(["keydown", function (e) {
         if (_this.index < 0) return;
 
         if (e.keyCode === 37) {
@@ -237,7 +259,7 @@ __webpack_require__.r(__webpack_exports__);
       this.events = [];
     },
     bg: function bg(i) {
-      return i && i.length > 0 ? "background-image: url('".concat(i, "')") : '';
+      return i && i.length > 0 ? "background-image: url('".concat(i, "')") : "";
     }
   }
 });
@@ -255,7 +277,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -272,28 +294,31 @@ var render = function() {
                 _vm.css,
                 _vm.items.length > _vm.cells
                   ? "lb-grid-" + _vm.cells
-                  : "lb-grid-" + _vm.items.length
-              ]
+                  : "lb-grid-" + _vm.items.length,
+              ],
             },
-            _vm._l(_vm.items, function(src, i) {
+            _vm._l(_vm.items, function (src, i) {
               return i < _vm.cells
                 ? _c(
-                    "div",
+                    "a",
                     {
+                      key: i,
                       staticClass: "lb-item",
                       style: _vm.bg(src),
+                      attrs: { href: _vm.items[i], role: "link" },
                       on: {
-                        click: function($event) {
+                        click: function ($event) {
+                          $event.preventDefault()
                           return _vm.show(i)
-                        }
-                      }
+                        },
+                      },
                     },
                     [
                       i == _vm.cells - 1 && _vm.items.length - _vm.cells > 0
                         ? _c("span", { staticClass: "lb-more" }, [
-                            _vm._v(_vm._s(_vm.items.length - _vm.cells) + "+")
+                            _vm._v(_vm._s(_vm.items.length - _vm.cells) + "+"),
                           ])
-                        : _vm._e()
+                        : _vm._e(),
                     ]
                   )
                 : _vm._e()
@@ -306,8 +331,8 @@ var render = function() {
             {
               attrs: {
                 "enter-active-class": "animated fadeIn",
-                "leave-active-class": "animated fadeOut"
-              }
+                "leave-active-class": "animated fadeOut",
+              },
             },
             [
               _vm.index >= 0
@@ -317,27 +342,42 @@ var render = function() {
                       {
                         staticClass:
                           "btn btn-outline-danger btn-sm lb-modal-close",
-                        on: { click: _vm.close }
+                        on: { click: _vm.close },
                       },
-                      [_c("i", { staticClass: "fas far fa-times" })]
+                      [
+                        _c("ion-icon", {
+                          attrs: { name: "close-circle-outline" },
+                        }),
+                      ],
+                      1
                     ),
                     _vm._v(" "),
                     _c(
                       "button",
                       {
                         staticClass: "btn btn-outline-primary lb-modal-prev",
-                        on: { click: _vm.prev }
+                        on: { click: _vm.prev },
                       },
-                      [_c("i", { staticClass: "fas far fa-angle-left fa-2x" })]
+                      [
+                        _c("ion-icon", {
+                          attrs: { name: "arrow-back-circle-outline" },
+                        }),
+                      ],
+                      1
                     ),
                     _vm._v(" "),
                     _c(
                       "button",
                       {
                         staticClass: "btn btn-outline-primary lb-modal-next",
-                        on: { click: _vm.next }
+                        on: { click: _vm.next },
                       },
-                      [_c("i", { staticClass: "fas far fa-angle-right fa-2x" })]
+                      [
+                        _c("ion-icon", {
+                          attrs: { name: "arrow-forward-circle-outline" },
+                        }),
+                      ],
+                      1
                     ),
                     _vm._v(" "),
                     _c(
@@ -355,12 +395,12 @@ var render = function() {
                                   "span",
                                   {
                                     staticClass:
-                                      "badge badge-primary rounded-circle w-10 h-10"
+                                      "badge badge-primary rounded-circle w-10 h-10",
                                   },
                                   [
                                     _c("i", { staticClass: "sr-only" }, [
-                                      _vm._v(" ")
-                                    ])
+                                      _vm._v(" "),
+                                    ]),
                                   ]
                                 ),
                                 _vm._v(" "),
@@ -368,12 +408,12 @@ var render = function() {
                                   "span",
                                   {
                                     staticClass:
-                                      "badge badge-primary rounded-circle w-10 h-10"
+                                      "badge badge-primary rounded-circle w-10 h-10",
                                   },
                                   [
                                     _c("i", { staticClass: "sr-only" }, [
-                                      _vm._v(" ")
-                                    ])
+                                      _vm._v(" "),
+                                    ]),
                                   ]
                                 ),
                                 _vm._v(" "),
@@ -381,12 +421,12 @@ var render = function() {
                                   "span",
                                   {
                                     staticClass:
-                                      "badge badge-primary rounded-circle w-10 h-10"
+                                      "badge badge-primary rounded-circle w-10 h-10",
                                   },
                                   [
                                     _c("i", { staticClass: "sr-only" }, [
-                                      _vm._v(" ")
-                                    ])
+                                      _vm._v(" "),
+                                    ]),
                                   ]
                                 ),
                                 _vm._v(" "),
@@ -394,12 +434,12 @@ var render = function() {
                                   "span",
                                   {
                                     staticClass:
-                                      "badge badge-primary rounded-circle w-10 h-10"
+                                      "badge badge-primary rounded-circle w-10 h-10",
                                   },
                                   [
                                     _c("i", { staticClass: "sr-only" }, [
-                                      _vm._v(" ")
-                                    ])
+                                      _vm._v(" "),
+                                    ]),
                                   ]
                                 ),
                                 _vm._v(" "),
@@ -407,23 +447,23 @@ var render = function() {
                                   "span",
                                   {
                                     staticClass:
-                                      "badge badge-primary rounded-circle w-10 h-10"
+                                      "badge badge-primary rounded-circle w-10 h-10",
                                   },
                                   [
                                     _c("i", { staticClass: "sr-only" }, [
-                                      _vm._v(" ")
-                                    ])
+                                      _vm._v(" "),
+                                    ]),
                                   ]
-                                )
+                                ),
                               ]
                             )
-                          : _vm._e()
+                          : _vm._e(),
                       ]
-                    )
+                    ),
                   ])
-                : _vm._e()
+                : _vm._e(),
             ]
-          )
+          ),
         ],
         1
       )
@@ -510,7 +550,12 @@ function normalizeComponent (
     options._ssrRegister = hook
   } else if (injectStyles) {
     hook = shadowMode
-      ? function () { injectStyles.call(this, this.$root.$options.shadowRoot) }
+      ? function () {
+        injectStyles.call(
+          this,
+          (options.functional ? this.parent : this).$root.$options.shadowRoot
+        )
+      }
       : injectStyles
   }
 
