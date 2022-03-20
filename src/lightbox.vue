@@ -27,7 +27,7 @@
       enter-active-class="animated fadeIn"
       leave-active-class="animated fadeOut"
     >
-      <div class="lb-modal" v-if="index >= 0">
+      <div class="lb-modal" v-if="index >= 0 && isShowModal">
         <button
           class="btn btn-outline-danger btn-sm lb-modal-close"
           @click="close"
@@ -84,6 +84,10 @@ export default {
     cells: {
       type: Number,
       default: () => 5,
+    },
+    isShowModal: {
+      type: Boolean,
+      default: true,
     },
   },
 

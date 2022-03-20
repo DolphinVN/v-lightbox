@@ -192,6 +192,10 @@ __webpack_require__.r(__webpack_exports__);
       "default": function _default() {
         return 5;
       }
+    },
+    isShowModal: {
+      type: Boolean,
+      "default": true
     }
   },
   data: function data() {
@@ -335,7 +339,7 @@ var render = function () {
               },
             },
             [
-              _vm.index >= 0
+              _vm.index >= 0 && _vm.isShowModal
                 ? _c("div", { staticClass: "lb-modal" }, [
                     _c(
                       "button",
